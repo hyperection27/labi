@@ -6,13 +6,12 @@
 '''
 #Словарь с цифрами
 dc_cifr = {'0': 'ноль', '1': 'один', '2': 'два', '3': 'три', '4': 'четыре', '5': 'пять', '6': 'шесть', '7': 'семь', '8': 'восемь', '9': 'девять'}
-#Баффер
+#БУффер
 gived_num = '1'
 #Выбор файла
 file_name = "text.txt"
 #Число K
-k = 3
-
+k = 1
 try:
     open(file_name, 'r')
 except:
@@ -38,8 +37,7 @@ with open(file_name, 'r') as file:
             for i in gived_num: print(dc_cifr[i], end=' ')
             print()
         else:
-            for i in range(0, len(gived_num)-1, 2):
-                print(gived_num[i+1] + gived_num[i], end='')
-            if len(gived_num) % 2 != 0:
-                print(gived_num[-1], end='')
+            for i in range(0, len(gived_num)-1):
+                gived_num = gived_num[:i] + gived_num[i+1] + gived_num[i] + gived_num[i+2:] #Меняются местами не попарно
+            print(gived_num, end='')
             print()
